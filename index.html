@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Sandbox</title>
+
+    <!-- ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+    <!-- poppins font from google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+
+    <!-- Modal Web Component -->
+    <script src="./wc-modal.js"></script>
+</head>
+<body>
+    <button>Open Modal</button>
+    <wc-modal>
+        <span slot="Title">Confirm Transaction?</span>
+
+        <article>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi at quam repellat laborum nam architecto explicabo eligendi tempora ipsum quo.</article>
+        <article>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque nam optio quas adipisci officiis delectus vero culpa, ab impedit neque voluptatum tenetur deleniti, quam vel ad nostrum omnis autem reprehenderit doloribus magnam inventore rem repudiandae? Rem, fugiat harum deserunt maxime officia iure soluta!</article>
+        <article>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa alias adipisci totam iste, porro ut!</article>
+    </wc-modal>
+    <script>
+        let btn = document.querySelector('button');
+        btn.addEventListener('click',function(){
+            let modal = document.querySelector('wc-modal');
+            modal.Open();
+        });
+
+        let modal = document.querySelector('wc-modal');
+        modal.addEventListener('close',function(){
+            console.log('modal close triggered');
+        });
+        modal.addEventListener('confirm',function(){
+            console.log('modal confirm triggered');
+        })
+    </script>
+</body>
+</html>
